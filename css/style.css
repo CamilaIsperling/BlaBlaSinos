@@ -1,0 +1,338 @@
+:root {
+    --gap: 2rem;
+    --white-color: #f0f0f0;
+    --dark-gray-color: #545454;
+    --primary-color: #21409a;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-size: 62.5%;
+    scroll-behavior: smooth;
+    font-family: 'Poppins';
+}
+
+body {
+    font-size: 2rem;
+    line-height: 1.5;
+}
+
+a {
+    text-decoration: none;
+}
+
+h1 {
+    text-transform: uppercase;
+}
+
+.main-bg {
+    background-color: var(--primary-color);
+    background-position: center center;
+    color: var(--white-color);
+}
+
+.white-bg {
+    background-color: var(--white-color);
+    background-position: center center;
+    color: var(--dark-gray-color);
+}
+
+.main-content {
+    max-width: 120rem;
+    margin: 0 auto;
+    padding: var(--gap);
+}
+
+.section-main-height {
+    min-height: 100vh;
+    /* max-height: 65vh; */
+}
+
+.section-second-height {
+    min-height: 65vh;
+    padding-left: 15rem;
+    padding-right: 15rem;
+}
+
+.section-third-height {
+    min-height: 35vh;
+    padding-left: 15rem;
+    padding-right: 15rem;
+}
+
+/* -=-=-=- MENU INIT -=-=-=- */
+.menu-spacing {
+    height: 65px;
+}
+
+.menu {
+    background-color: var(--white-color);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    z-index: 1;
+}
+
+.menu-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+.menu h1 {
+    color: var(--primary-color);
+}
+
+.menu h1 a {
+    color: inherit;
+}
+
+.menu ul {
+    list-style: none;
+    display: flex;
+}
+
+.menu ul li a {
+    display: block;
+    padding: 2rem;
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: var(--primary-color);
+    position: relative;
+}
+
+.menu ul li a::after{
+    content: '';
+    position: absolute;
+    bottom: 1rem;
+    left: 50%;
+    width: 0;
+    height: 0.2rem;
+    background: var(--primary-color);
+    transition: all 300ms ease-in-out;
+}
+
+.menu ul li a:hover::after {
+    width: 50%;
+    left: 25%;
+}
+
+/* -=-=-=- INTRO INIT -=-=-=- */
+.intro-content {
+    display: flex;
+    flex-direction: column;
+}
+
+.intro-img-text {
+    display: flex;
+    flex-flow: column wrap;
+    /* justify-content: center; */
+    align-items: center;
+    background-image: url('../img/carpool_blue_bus_large-30b3097694f4e465398f.svg');
+    background-size: cover;
+    background-position: center center;
+    height: 30rem;
+}
+
+.intro-text {
+    font-size: 5rem;
+    font-weight: bold;
+    color: var(--primary-color);
+    text-transform: uppercase;
+}
+
+.intro-top-3 {
+    display: flex;
+    align-items: firts baseline;
+    justify-content: space-between;
+    padding: 6rem;
+    gap: 4rem;
+    background-color: white;
+}
+
+.intro-top-3 i, h2, p {
+    color: var(--dark-gray-color);
+}
+
+.intro-top-3 i {
+    font-size: 3.5rem;
+    display: flex;
+    justify-content: center
+}
+
+.intro-top-3 h2, p {
+    font-size: 1.8rem;
+    display: flex;
+    justify-content: center;
+}
+
+.intro-t1 {
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+    width: 40rem;
+    padding: 1rem;
+}
+
+.intro-t2 {
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+    width: 40rem;
+    padding: 1rem;
+}
+
+.intro-t3 {
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+    width: 40rem;
+    padding: 1rem;
+}
+
+/* -=-=-=- SECURITY INIT -=-=-=- */
+
+.security-content {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5rem;
+}
+
+.security-img-text {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5rem;
+}
+
+.security-img {
+    width: 100%;
+}
+
+.security-text-button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.security-img img{
+    max-width: 100%;
+    height: auto;
+}
+
+.security-text-button h2, .security-text-button p{
+    color: #f0f0f0;
+    margin-bottom: 5rem;
+}
+
+.security-text-button button {
+    width: 15rem;
+    height: 5rem;
+    border: 0cm;
+    border-radius: 10px;
+    font-family: 'Poppins';
+    font-weight: bold;
+    color: var(--primary-color);
+}
+
+/* -=-=-=- RIDE INIT -=-=-=- */
+.ride-content {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5rem;
+}
+
+.ride-text-img {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5rem;
+}
+
+.ride-img {
+    width: 100%;
+}
+
+.ride-img img{
+    max-width: 100%;
+    height: auto;
+}
+
+.ride-text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.ride-text h2, .ride-text p{
+    color: var(--primary-color);
+    margin-bottom: 5rem;
+}
+
+.ride-text button{
+    width: 15rem;
+    height: 5rem;
+    border-radius: 10px;
+    font-family: 'Poppins';
+    font-weight: bold;
+    border-color: var(--primary-color);
+    color: var(--primary-color);
+}
+
+/* -=-=-=- COMMON-RIDE INIT -=-=-=- */
+.common-ride-content {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 5rem;
+}
+
+.common-ride-text h2{
+    margin-bottom: 5rem;
+    color: #f0f0f0;
+}
+
+.common-ride-btns ul{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+}
+
+.common-ride-btns li {
+    list-style: none;
+}
+
+.common-ride-btns li a{
+    color: var(--primary-color);
+}
+
+.box-ride {
+    display: flex;
+    align-items: center;
+    justify-content: stretch;
+    text-align: center;
+    width: auto;
+    height: 5rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    padding-inline: 5rem;
+    border-radius: 10px; 
+    background-color: #f0f0f0;
+}

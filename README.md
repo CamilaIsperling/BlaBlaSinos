@@ -1,2 +1,2 @@
-# BlaBlaSinos
-Sistema de gerenciamento de caronas da Unisinos
+# ola_django
+Primeira interação com o Django para a aula de implementação de software
