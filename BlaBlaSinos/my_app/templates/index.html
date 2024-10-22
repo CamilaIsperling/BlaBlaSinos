@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,9 +7,8 @@
     <title>Protype BlablaSinos</title>
 
     <!-- Link para as pastas -->
-    <link rel="stylesheet" href="./css/style.css">
-    <link rel="stylesheet" href="./img">
-
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    
     <!-- Link para fonte -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -50,7 +50,7 @@
                     <span>Viagens mais baratas</span>
                 </div>
                 <div class="intro-img">
-                    <!-- <img class="zj5dd90" loading="eager" decoding="sync" src="https://cdn.blablacar.com/kairos/assets/images/carpool_blue_bus_large-30b3097694f4e465398f.svg" alt="" height="100%" width="100%" fetchpriority="high"> -->
+                     <img class="zj5dd90" loading="eager" decoding="sync" src="{% static '/img/carpool_blue_bus_large-30b3097694f4e465398f.svg' %}" alt="" height="100%" width="100%" fetchpriority="high">
                 </div>
             </div>
             <div class="intro-top-3">
@@ -78,7 +78,7 @@
         <div class="security-content">
             <div class="security-img-text">
                 <div class="security-img">
-                    <img src="./img/undraw_security_on_re_e491.svg" alt="imagem aqui">
+                    <img src="{% static '/img/undraw_security_on_re_e491.svg' %}" alt="imagem aqui">
                 </div>
                 <div class="security-text-button">
                     <h2>Segurança</h2>
@@ -99,7 +99,7 @@
                     <button>Oferecer carona</button>
                 </div>
                 <div class="ride-img">
-                    <img src="./img/undraw_order_ride_re_372k.svg" alt="corrida">
+                    <img src="{% static '/img/undraw_order_ride_re_372k.svg' %}" alt="corrida">
                 </div>
             </div>
         </div>

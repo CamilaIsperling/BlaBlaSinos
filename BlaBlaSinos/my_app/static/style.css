@@ -133,13 +133,23 @@ h1 {
 
 .intro-img-text {
     display: flex;
-    flex-flow: column wrap;
-    /* justify-content: center; */
+    flex-direction: column;
+    justify-content: center;
     align-items: center;
-    background-image: url('../img/carpool_blue_bus_large-30b3097694f4e465398f.svg');
-    background-size: cover;
-    background-position: center center;
-    height: 30rem;
+    text-align: center;
+    background-image: url("{% static 'img/nome_da_imagem.svg' %}");
+    background-size: cover;        
+    background-position: center;   
+    background-repeat: no-repeat; 
+    height: 30rem;                
+}
+
+.intro-img {
+    width: 100%;
+    height: 100vh;                 
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .intro-text {
@@ -188,6 +198,18 @@ h1 {
     border-radius: 10px;
     width: 40rem;
     padding: 1rem;
+}
+
+.intro-t1 h2 {
+    margin-bottom: 10px;
+}
+
+.intro-t2 h2 {
+    margin-bottom: 10px;
+}
+
+.intro-t3 h2 {
+    margin-bottom: 10px;
 }
 
 .intro-t3 {
