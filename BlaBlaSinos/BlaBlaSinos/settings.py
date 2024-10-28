@@ -78,8 +78,12 @@ WSGI_APPLICATION = 'BlaBlaSinos.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',  # Agora isso funcionará corretamente
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'blablasinos',
+        'USER': 'root',        # Substitua pelo seu usuário MySQL
+        'PASSWORD': '_43690',      # Substitua pela sua senha MySQL
+        'HOST': 'localhost',                # Ou o endereço do seu servidor MySQL
+        'PORT': '3306',                     # A porta padrão do MySQL'
     }
 }
 
