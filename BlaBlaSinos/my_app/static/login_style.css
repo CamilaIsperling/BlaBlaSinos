@@ -1,3 +1,4 @@
+
 * {
     box-sizing: border-box;
 }
@@ -21,7 +22,7 @@ body {
     height: 100vh;
     padding: 0 24px;
     background-color: var(--primary-color);
-    /* background-image: url('../img/Unisinos_symbol_bg_lightblue.png'); */
+    background-image: url('../static/img/logo.png'); 
     background-repeat: repeat;
     background-size: 100px 100px;
     font-family: 'Poppins';
