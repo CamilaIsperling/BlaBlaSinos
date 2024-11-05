@@ -9,7 +9,6 @@
     {% load static %}
     <link rel="stylesheet" href="{% static 'login_style.css' %}">
     
-
     <!-- Link para fonte -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -20,9 +19,19 @@
     <div class="card">
         <h2>Login</h2>
         <h3>Preencha com os seus dados de login:</h3>
-        <form class="form">
-            <input type="text" placeholder="Username">
-            <input type="password" placeholder="Password">
+
+        {% if messages %}
+            <ul>
+                {% for message in messages %}
+                    <li>{{ message }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+        
+        <form class="form" method="post">
+            {% csrf_token %}
+            <input type="text" name="username" placeholder="Username" required>
+            <input type="password" name="password" placeholder="Password" required>
             <label>
                 <input type="checkbox">
                 <span class="checkbox-text">
