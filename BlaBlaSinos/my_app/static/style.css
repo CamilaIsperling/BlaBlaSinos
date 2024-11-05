@@ -358,3 +358,13 @@ h1 {
     border-radius: 10px; 
     background-color: #f0f0f0;
 }
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    color: red;  /* Cor da mensagem de erro */
+    margin: 10px 0;
+}

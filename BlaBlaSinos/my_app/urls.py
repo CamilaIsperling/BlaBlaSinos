@@ -3,5 +3,6 @@ from my_app import views
 
 urlpatterns = [
     path('login/', views.login_view, name='login'),  # Rota para a página de login
+    path('register/', views.register_view, name='register'),
     path('', views.index, name='index')
 ]
