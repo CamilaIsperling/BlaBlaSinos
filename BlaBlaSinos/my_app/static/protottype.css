@@ -1,0 +1,231 @@
+:root {
+    --gap: 2rem;
+    --white-color: #f0f0f0;
+    --dark-gray-color: #545454;
+    --primary-color: #21409a;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+    font-family: 'Poppins';
+}
+
+body {
+    font-size: 2rem;
+    line-height: 1.5;
+}
+
+a {
+    text-decoration: none;
+}
+
+h1 {
+    text-transform: uppercase;
+}
+
+.menu-nav {
+    max-width: 120rem;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.menu-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 0;
+    padding-bottom: 0;
+    border-bottom-style: solid;
+    border-bottom-color: var(--primary-color);
+    border-bottom-width: 2px;
+}
+
+.menu-content h1 a {
+    display: flex;
+    font-size: 2rem;
+    color: var(--primary-color);
+}
+
+.menu-content ul {
+    list-style: none;
+    display: flex;
+}
+
+.menu-content ul li a {
+    display: block;
+    padding: 2rem;
+    font-size: 1rem;
+    font-weight: bold;
+    color: var(--primary-color);
+    position: relative;
+}
+
+.menu-spacing {
+    height: 65px;
+}
+
+/* Barra de pesquisa */
+.search-section {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    gap: 2rem;
+    width: 80%;
+    margin: 0 auto;
+    /* background-color: red; */
+    border-bottom: 2px solid #d8d5d5;
+}
+
+.search-section h2 {
+    font-size: 1.5rem;
+    color: var(--primary-color);
+    margin: 30px;
+}
+
+.search-bar {
+    display: flex;
+    /* background-color: cyan; */
+    padding: 10px;
+    gap: 0.5rem;
+}
+
+.search-bar input {
+    width: 400px;
+    height: 30px;
+    padding: 0 20px;
+    border-width: 0px;
+    border-radius: 10px;
+    background-color: #d8d5d5;
+}
+
+.search-bar button {
+    border-width: 0px;
+    border-radius: 10px;
+    width: 25px;
+    height: 30px;
+    background-color: #d8d5d5;
+}
+
+/* Lista de viagens */
+.viagens-add-txt {
+    font-size: 1.5rem;
+    color: var(--primary-color);
+    width: 80%;
+    margin: 0 auto;
+    margin-top: 10px;
+}
+
+.viagens-adicionadas-menu {
+    display: flex;
+    width: 80%;
+    margin: 20px auto;
+}
+
+.viagens-lista {
+    width: 60%;
+}
+
+.item-viagem {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    padding: 10px;
+    margin: 15px 0;
+    border: 2px solid #ececec;
+    border-radius: 20px;
+    background-color: #f0f0f0;
+}
+
+.radio-container input[type="radio"] {
+    display: none;
+}
+
+.radio-container {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    font-size: 18px;
+    margin: 10px 0;
+}
+
+.custom-radio {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    border: 2px solid #0056b3;
+    margin-right: 10px;
+    position: relative;
+}
+
+.radio-container input[type="radio"]:checked+.custom-radio {
+    background-color: #0056b3;
+}
+
+.radio-container input[type="radio"]:checked+.custom-radio::after {
+    content: "";
+    width: 12px;
+    height: 12px;
+    background-color: #fff;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.detalhes-viagem {
+    font-size: 1.2rem;
+}
+
+.preco-viagem {
+    color: var(--primary-color);
+    white-space: nowrap;
+    font-size: 1.2rem;
+    margin-left: auto;
+    margin-right: 10px;
+}
+
+.filtros {
+    width: 30%;
+    height: 300px;
+    border: 2px solid #ececec;
+    border-radius: 20px;
+    background-color: #f0f0f0;
+    margin-left: 60px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.filtros h3 {
+    color: black;
+    font-size: 1.2rem;
+    margin: 10px 15px;
+}
+
+.opcao-filtro {
+    display: flex;
+    flex-direction: column;
+    margin: 20px;
+    gap: 1rem;
+    font-size: 1rem;
+}
+
+.filtros button {
+    color: var(--white-color);
+    background-color: var(--primary-color);
+    width: 300px;
+    height: 30px;
+    border-width: 0px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 10px;
+}
