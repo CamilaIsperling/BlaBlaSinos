@@ -2,15 +2,9 @@
     box-sizing: border-box;
 }
 
-@keyframes rotate {
-    100% {
-        background-position: 25% 50%;
-    }
-}
-
 :root {
-    --primary-color: #21409a;
-    --white-color: #f0f0f0;
+    --primary-color: #21409a; /* A mesma cor primária que você usou para o login */
+    --white-color: #f0f0f0; 
     --dark-gray-color: #545454;
 }
 
@@ -23,17 +17,17 @@ body {
     background-color: var(--primary-color);
     background-image: url('/static/img/logo.png'); 
     background-repeat: no-repeat;
-    background-position: center 70%; /* Centraliza horizontalmente e move para baixo */
-    background-size: 50vw; /* Usa 50% da largura da tela */
+    background-position: center 70%;
+    background-size: 50vw;
     font-family: 'Poppins';
     color: #f9f9f9;
 }
 
 .card {
     width: 100%;
-    max-width: 500px; /* Limita a largura máxima da carta */
+    max-width: 500px; 
     margin: 0 20px;
-    padding: 10vw 5vw 10vw; /* Usa unidades relativas para o padding */
+    padding: 10vw 5vw 10vw; 
     border-radius: 20px;
     background-color: rgba(0, 0, 0, 0.17);
     backdrop-filter: blur(10px);
@@ -83,21 +77,21 @@ body {
     font-size: 16px;
 }
 
-.form {
+form {
     width: 100%;
     margin: 0;
     display: grid;
     gap: 16px;
 }
 
-.form :is(input, button) {
+form :is(input, button) {
     width: 100%;
     height: 56px;
     border-radius: 6px;
     border: 0;
 }
 
-.form input {
+form input {
     color: rgba(255, 255, 255, 0.96);
     background: rgba(255, 255, 255, 0.08);
     font-family: inherit;
@@ -105,15 +99,15 @@ body {
     padding: 0 16px;
 }
 
-.form input:focus {
+form input:focus {
     outline: var(--primary-color);
 }
 
-.form input::placeholder {
+form input::placeholder {
     color: rgba(255, 255, 255, 0.38);
 }
 
-.form button {
+form button {
     cursor: pointer;
     width: 100%;
     height: 50px;
@@ -123,32 +117,4 @@ body {
     border: 0;
     font-family: 'Poppins';
     font-size: large;
-}
-
-.form label {
-    display: block;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    margin: 6px 0 8px;
-    color: rgba(255, 255, 255, 0.5);
-}
-
-.form label input {
-    width: 20px;
-    height: 20px;
-}
-
-.checkbox {
-    display: block;
-    width: inherit;
-    height: inherit;
-    border: 3px solid rgba(255, 255, 255, 0.18);
-    border-radius: 6px;
-    transition: all 0.375s;
-}
-
-.cadastro-link {
-    color: #ffffff;
 }
