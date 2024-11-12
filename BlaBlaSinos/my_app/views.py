@@ -42,3 +42,6 @@ def register_view(request):
             messages.error(request, 'As senhas não coincidem')
             
     return render(request, 'register.html')
+
+def caronas(request):
+    return render(request, 'index_carona.html')

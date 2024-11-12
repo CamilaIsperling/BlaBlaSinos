@@ -368,3 +368,19 @@ li {
     color: red;  /* Cor da mensagem de erro */
     margin: 10px 0;
 }
+
+.button-style {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    width: 18rem;
+    height: 5rem;
+    border: 2px solid var(--primary-color);
+    border-radius: 10px;
+    font-family: 'Poppins';
+    font-weight: bold;
+    color: var(--white-color);
+    background-color: var(--primary-color);
+    white-space: nowrap;
+}
