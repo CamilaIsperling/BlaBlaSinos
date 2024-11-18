@@ -1,0 +1,251 @@
+:root {
+    --gap: 2rem;
+    --white-color: #f0f0f0;
+    --dark-gray-color: #545454;
+    --primary-color: #21409a;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+    font-family: 'Poppins';
+}
+
+body {
+    font-size: 2rem;
+    line-height: 1.5;
+}
+
+a {
+    text-decoration: none;
+}
+
+h1 {
+    text-transform: uppercase;
+}
+
+.menu-content h1 {
+    font-size: 2rem;
+    color: var(--primary-color);
+    padding: 10px;
+    text-align: center;
+    border-bottom: 2px solid var(--primary-color);
+}
+
+.menu-content h1 a {
+    color: inherit;
+}
+
+i#hamburguer {
+    color: #21409a;
+    display: block;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    padding: 10px;
+    cursor: pointer;
+    border-bottom: 2px solid var(--primary-color);
+    transition: 0.2s;
+}
+
+i#hamburguer:hover {
+    background-color: var(--primary-color);
+    color: var(--white-color);
+}
+
+.menu-itens {
+    display: none;
+}
+
+.menu-itens ul {
+    list-style-type: none;
+}
+
+.menu-itens ul li a {
+    font-size: 1.4rem;
+    display: block;
+    padding: 10px;
+    text-align: center;
+    text-decoration: none;
+    color: var(--primary-color);
+    border-bottom: 1.5px solid var(--primary-color);
+}
+
+.menu-itens ul li a:hover {
+    background-color: var(--primary-color);
+    color: var(--white-color);
+}
+
+/* Bem vindo usuário */
+.msg-section {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    width: 80%;
+    margin: 0 auto;
+    margin-top: 2rem;
+    gap: 1rem;
+    border-bottom: 2px solid var(--dark-gray-color);
+}
+
+.msg-section h2 {
+    color: var(--primary-color);
+    font-size: 1.5rem;
+}
+
+/* Card do forms */
+.card {
+    margin: 0 auto;
+}
+
+.card form {
+    width: 80%;
+    margin: 0 auto;
+    margin-top: 1rem;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    border: 2px solid var(--dark-gray-color);
+    background: rgb(237, 237, 237, .5);
+    backdrop-filter: blur(10px);
+}
+
+/* Pt Origem */
+.orig-div {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    gap: 1rem;
+    width: 80%;
+    margin: 0 auto;
+    margin-top: 10px;
+}
+
+.orig-label {
+    font-size: 1.5rem;
+}
+
+.orig-input {
+    width: 300px;
+    height: 30px;
+    padding: 0 10px;
+    font-family: "Poppins";
+    border-radius: 10px;
+    border: 2px solid var(--dark-gray-color);
+}
+
+/* Pt Destino */
+.dest-div {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    gap: 1rem;
+    width: 80%;
+    margin: 0 auto;
+    margin-top: 10px;
+}
+
+.dest-label {
+    font-size: 1.5rem;
+    /* color: var(--primary-color); */
+}
+
+.dest-input {
+    width: 300px;
+    height: 30px;
+    padding: 0 10px;
+    font-family: "Poppins";
+    border-radius: 10px;
+    border: 2px solid var(--dark-gray-color);
+}
+
+/* Pt passageiros */
+.passagers-div {
+    /* background-color: purple; */
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: start;
+    width: 80%;
+    gap: 2rem;
+    margin: 0 auto;
+    margin-top: 10px;
+}
+
+.passagers-icone {
+    font-size: 1.5rem;
+}
+
+.passagers-txt {
+    font-size: 1.5rem;
+}
+
+.passagers-select {
+    width: 60px;
+    height: 25px;
+    text-align: center;
+    justify-content: center;
+    border-radius: 10px;
+    border-width: 0;
+    color: var(--white-color);
+    background-color: black;
+}
+
+.preco-div {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: start;
+    gap: 1rem;
+    width: 80%;
+    margin: 0 auto;
+    margin-top: 10px;
+}
+
+.preco-label {
+    font-size: 1.5rem;
+}
+
+.preco-input {
+    width: 100px;
+    height: 30px;
+    padding: 0 10px;
+    font-family: "Poppins";
+    border-radius: 10px;
+    border: 2px solid var(--dark-gray-color);
+}
+
+.btn-div {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.btn-submit {
+    width: 80%;
+    height: 35px;
+    border-radius: 10px;
+    border-width: 0;
+    color: var(--white-color);
+    background-color: var(--primary-color);
+    margin-top: 50px;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: space-between;
+    padding-left: 10px;
+    padding-right: 10px;
+}
