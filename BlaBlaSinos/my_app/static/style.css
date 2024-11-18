@@ -374,7 +374,7 @@ li {
     align-items: center;
     text-align: center;
     justify-content: center;
-    width: 18rem;
+    width: 20rem;
     height: 5rem;
     border: 2px solid var(--primary-color);
     border-radius: 10px;
@@ -383,4 +383,25 @@ li {
     color: var(--white-color);
     background-color: var(--primary-color);
     white-space: nowrap;
+}
+
+.button-style2 {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    width: 20rem;
+    height: 5rem;
+    border: 2px solid var(--primary-color);
+    border-radius: 10px;
+    font-family: 'Poppins';
+    font-weight: bold;
+    color: var(--white-color);
+    background-color: var(--primary-color);
+    white-space: nowrap;
+}
+
+.ride-buttons {
+    display: inline-flex;
+    gap: 1rem; /* Espaço entre os botões */
 }

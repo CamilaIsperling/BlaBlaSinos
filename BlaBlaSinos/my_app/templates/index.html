@@ -89,21 +89,29 @@
         </div>
     </section>
 
-    <!-- Sessão falando sobre caronas -->
-    <section id="ride" class="white-bg section-second-height">
-        <div class="ride-content">
-            <div class="ride-text-img">
-                <div class="ride-text">
-                    <h2>Carona</h2>
-                    <p>Cadastre-se como condutor e economize nos custos da viagem levando passageiros. São só alguns minutos para oferecer uma carona.</p>
-                    <a href="{% url 'index_carona' %}" class="button-style">Oferecer carona</a>
-                </div>
-                <div class="ride-img">
-                    <img src="{% static '/img/undraw_order_ride_re_372k.svg' %}" alt="corrida">
+<!-- Sessão sobre Caronas -->
+<section id="ride" class="white-bg section-second-height">
+    <div class="ride-content">
+        <div class="ride-text-img">
+            <!-- Texto da seção -->
+            <div class="ride-text">
+                <h2 class="ride-title">Carona</h2>
+                <p class="ride-description">
+                    Cadastre-se como condutor e economize nos custos da viagem levando passageiros. São só alguns minutos para oferecer uma carona.
+                </p>
+                <!-- Botões de ação -->
+                <div class="ride-buttons">
+                    <a href="{% url 'index_motorista' %}" class="button-style">Oferecer Carona</a>
+                    <a href="{% url 'index_carona' %}" class="button-style2">Pegar uma Carona</a>
                 </div>
             </div>
+            <!-- Imagem da seção -->
+            <div class="ride-img">
+                <img src="{% static '/img/undraw_order_ride_re_372k.svg' %}" alt="Corrida compartilhada">
+            </div>
         </div>
-    </section>
+    </div>
+</section>
 
     <!-- Sessão das 3 viagens mais comuns -->
     <section class="main-bg section-third-height">
