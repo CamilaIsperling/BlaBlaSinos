@@ -53,11 +53,15 @@
                 {% csrf_token %}
                 <div class="orig-div">
                     <label for="" class="orig-label">Origem:</label>
-                    <input type="text" name="origem" class="orig-input" placeholder="Ex: Novo Hamburgo"><br>
+                    <input type="text" name="origem" class="orig-input" placeholder="Ex: Novo Hamburgo"><br>               
+                    <label for="horario" class="orig-label">Horário:</label>
+                    <input type="time" name="horario" class="orig-input"><br>
                 </div>
                 <div class="dest-div">
                     <label for="" class="dest-label">Destino:</label>
                     <input type="text" name="destino" class="dest-input" placeholder="Ex: Unisinos São Leopoldo"><br>
+                    <label for="horario" class="orig-label">Horário:</label>
+                    <input type="time" name="horario" class="orig-input"><br>
                 </div>
                 <div class="passagers-div">
                     <label for="" class="passagers-txt">Passageiros:</label>
