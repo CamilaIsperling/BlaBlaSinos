@@ -55,6 +55,7 @@
     <h2 class="viagens-add-txt">Viagens adicionadas recentemente</h2>
     <main class="viagens-adicionadas-menu">
         <div class="viagens-lista">
+            {% for carona in caronas %}
             <div class="item-viagem">
                 <label class="radio-container">
                     <input type="radio" name="viagem">
@@ -62,35 +63,12 @@
                 </label>
                 <i class="fas fa-car" style="font-size: 3rem; color: #21409a;"></i>
                 <div class="detalhes-viagem">
-                    <h3>Hamburgo Velho, Novo Hamburgo</h3>
-                    <span>Saída: 22:20</span>
+                    <h3>{{ carona.origem }}, {{ carona.destino }}</h3>
+                    <span>Saída: {{ carona.horario }}</span>
                 </div>
-                <div class="preco-viagem">R$ 10,00</div>
+                <div class="preco-viagem">R$ {{ carona.preco }}</div>
             </div>
-            <div class="item-viagem">
-                <label class="radio-container">
-                    <input type="radio" name="viagem">
-                    <span class="custom-radio"></span>
-                </label>
-                <i class="fas fa-car" style="font-size: 3rem; color: #21409a;"></i>
-                <div class="detalhes-viagem">
-                    <h3>Cidade Baixa, Porto Alegre</h3>
-                    <span>Saída: 23:00</span>
-                </div>
-                <div class="preco-viagem">R$ 28,00</div>
-            </div>
-            <div class="item-viagem">
-                <label class="radio-container">
-                    <input type="radio" name="viagem">
-                    <span class="custom-radio"></span>
-                </label>
-                <i class="fas fa-car" style="font-size: 3rem; color: #21409a;"></i>
-                <div class="detalhes-viagem">
-                    <h3>Cidade Baixa, Porto Alegre</h3>
-                    <span>Saída: 23:00</span>
-                </div>
-                <div class="preco-viagem">R$ 28,00</div>
-            </div>
+            {% endfor %}
         </div>
         <aside class="filtros">
             <h3>Ordenação por:</h3>
@@ -103,6 +81,7 @@
             <button class="aplica-filtro">Aplicar filtros <i class="fas fa-arrow-right"></i></button>
         </aside>
     </main>
+
 </body>
 
 </html>

@@ -108,3 +108,13 @@ class ConfiguracaoUsuario(models.Model):
     
     def __str__(self):
         return f"Configuração do Usuário {self.usuario.nome}"
+    
+class Carona(models.Model):
+    origem = models.CharField(max_length=100)
+    destino = models.CharField(max_length=100)
+    passageiros = models.PositiveIntegerField()  # Para o número de passageiros
+    valor = models.DecimalField(max_digits=5, decimal_places=2)  # Valor da carona com 2 casas decimais
+
+    def __str__(self):
+        return f"De {self.origem} para {self.destino} - R$ {self.valor} - {self.passageiros} passageiros"
+

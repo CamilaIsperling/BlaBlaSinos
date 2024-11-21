@@ -3,6 +3,7 @@ from django.contrib.auth.models import User
 from django.contrib import messages
 from django.shortcuts import redirect
 from django.contrib.auth import authenticate, login
+from .models import Carona
 
 def index(request):
     return render(request, 'index.html')  # Certifique-se de que o caminho está correto
@@ -44,7 +45,25 @@ def register_view(request):
     return render(request, 'register.html')
 
 def caronas(request):
-    return render(request, 'index_carona.html')
+    # Pega todas as caronas cadastradas
+    caronas = Carona.objects.all()
+    return render(request, 'index_carona.html', {'caronas': caronas})
 
 def cadastrarCaronas(request):
+    if request.method == 'POST':
+        origem = request.POST.get('origem')
+        destino = request.POST.get('destino')
+        passageiros = request.POST.get('passageiros')
+        valor = request.POST.get('preco')
+
+        if origem and destino and passageiros and valor:
+            # Cria e salva a carona
+            carona = Carona(origem=origem, destino=destino, passageiros=passageiros, valor=valor)
+            carona.save()
+            return redirect('index_carona')
+        else:
+            # Caso algum campo não seja preenchido corretamente
+            return render(request, 'index_motorista.html', {'error': 'Preencha todos os campos!'})
+
     return render(request, 'index_motorista.html')
+
