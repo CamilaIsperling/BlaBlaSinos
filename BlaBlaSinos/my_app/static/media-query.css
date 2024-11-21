@@ -1,0 +1,65 @@
+/* Typical Device Breakpoints 
+Smaller smartphones: 0-480px
+Tablets & larger smartphones: 481-768px
+Laptops, and small desktop: 769-1279
+Larger desktops & monitors: 1280+
+*/
+
+:root {
+    --gap: 2rem;
+    --white-color: #f0f0f0;
+    --dark-gray-color: #545454;
+    --primary-color: #21409a;
+}
+
+@media screen and (min-width: 768px) {
+    i#hamburguer {
+        display: none;
+    }
+
+    .menu-content {
+        display: flex;
+        align-items: center;
+        text-align: center;
+        justify-content: space-between;
+        padding: 0 20px;
+        border-bottom: 2px solid var(--primary-color);
+    }
+
+    .menu-content h1 {
+        border: 0;
+    }
+
+    .menu-itens {
+        display: block;
+        align-items: center;
+        text-align: center;
+        justify-content: center;
+    }
+
+    .menu-itens ul li {
+        display: inline-block;
+    }
+
+    .menu-itens ul li a {
+        font-size: 1.3rem;
+        border-radius: 10px;
+        border-bottom: 0;
+    }
+
+    /* Card / forms */
+    .card,
+    .msg-section {
+        max-width: 768px;
+    }
+
+    .orig-div,
+    .dest-div,
+    .passagers-div,
+    .preco-div {
+        align-items: center;
+        text-align: center;
+        justify-content: start;
+        padding-left: 30px;
+    }
+}

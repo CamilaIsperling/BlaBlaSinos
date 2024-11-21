@@ -45,3 +45,6 @@ def register_view(request):
 
 def caronas(request):
     return render(request, 'index_carona.html')
+
+def cadastrarCaronas(request):
+    return render(request, 'index_motorista.html')
