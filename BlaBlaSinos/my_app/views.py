@@ -45,8 +45,8 @@ def register_view(request):
     return render(request, 'register.html')
 
 def caronas(request):
-    # Pega todas as caronas cadastradas
-    caronas = Carona.objects.all()
+    # Pega as 5 últimas caronas cadastradas e ordena pelas mais recentes
+    caronas = Carona.objects.all().order_by('-created_at')[:4]
     return render(request, 'index_carona.html', {'caronas': caronas})
 
 def cadastrarCaronas(request):
@@ -55,15 +55,21 @@ def cadastrarCaronas(request):
         destino = request.POST.get('destino')
         passageiros = request.POST.get('passageiros')
         valor = request.POST.get('preco')
+        horario_saida = request.POST.get('horario_saida')  # Pega o horário de saída
+        horario_chegada = request.POST.get('horario_chegada')  # Pega o horário de chegada
 
-        if origem and destino and passageiros and valor:
+        if origem and destino and passageiros and valor and horario_saida and horario_chegada:
             # Cria e salva a carona
-            carona = Carona(origem=origem, destino=destino, passageiros=passageiros, valor=valor)
+            carona = Carona(
+                origem=origem, 
+                destino=destino, 
+                passageiros=passageiros, 
+                valor=valor, 
+                horario_saida=horario_saida,  # Salvando o horário de saída
+                horario_chegada=horario_chegada  # Salvando o horário de chegada
+            )
             carona.save()
             return redirect('index_carona')
         else:
-            # Caso algum campo não seja preenchido corretamente
             return render(request, 'index_motorista.html', {'error': 'Preencha todos os campos!'})
-
     return render(request, 'index_motorista.html')
-

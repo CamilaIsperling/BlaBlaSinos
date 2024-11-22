@@ -64,11 +64,11 @@
                 <i class="fas fa-car" style="font-size: 3rem; color: #21409a;"></i>
                 <div class="detalhes-viagem">
                     <h3>{{ carona.origem }}, {{ carona.destino }}</h3>
-                    <span>Saída: {{ carona.horario }}</span>
+                    <span>Saída: {{ carona.horario_saida|date:"H:i" }}</span> <!-- Formatação de horário -->
                 </div>
-                <div class="preco-viagem">R$ {{ carona.preco }}</div>
+                <div class="preco-viagem">R$ {{ carona.valor }}</div>
             </div>
-            {% endfor %}
+        {% endfor %}
         </div>
         <aside class="filtros">
             <h3>Ordenação por:</h3>
