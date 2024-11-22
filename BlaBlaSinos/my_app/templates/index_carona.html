@@ -29,7 +29,7 @@
     <!-- Menu de navegação -->
     <header class="menu-nav menu-content">
         <h1>
-            <a href="#">BlablaSinos</a>
+            <a href="{% url 'index' %}">BlablaSinos</a>
         </h1>
 
         <nav>
@@ -46,30 +46,37 @@
     <!-- Pesquisa de caronas "Local destino" -->
     <section class="search-section">
         <h2 class="pesquisa-carona">Pesquisar caronas:</h2>
-        <div class="search-bar">
-            <input type="text" id="search" placeholder="Local destino">
-            <button><i class="fas fa-search"></i></button>
-        </div>
+        <form method="GET" action="{% url 'index_carona' %}">
+            <div class="search-bar">
+                <input type="text" id="search" name="search" placeholder="Digite o local de destino">
+                <button type="submit"><i class="fas fa-search"></i></button>
+            </div>
+        </form>
     </section>
     <!-- Viagens adicionadas recentemente -->
     <h2 class="viagens-add-txt">Viagens adicionadas recentemente</h2>
     <main class="viagens-adicionadas-menu">
         <div class="viagens-lista">
-            {% for carona in caronas %}
-            <div class="item-viagem">
-                <label class="radio-container">
-                    <input type="radio" name="viagem">
-                    <span class="custom-radio"></span>
-                </label>
-                <i class="fas fa-car" style="font-size: 3rem; color: #21409a;"></i>
-                <div class="detalhes-viagem">
-                    <h3>{{ carona.origem }}, {{ carona.destino }}</h3>
-                    <span>Saída: {{ carona.horario_saida|date:"H:i" }}</span> <!-- Formatação de horário -->
-                </div>
-                <div class="preco-viagem">R$ {{ carona.valor }}</div>
-            </div>
-        {% endfor %}
+            {% if caronas %}
+                {% for carona in caronas %}
+                    <div class="item-viagem">
+                        <label class="radio-container">
+                            <input type="radio" name="viagem">
+                            <span class="custom-radio"></span>
+                        </label>
+                        <i class="fas fa-car" style="font-size: 3rem; color: #21409a;"></i>
+                        <div class="detalhes-viagem">
+                            <h3>{{ carona.origem }}, {{ carona.destino }}</h3>
+                            <span>Saída: {{ carona.horario_saida|date:"H:i" }}</span>
+                        </div>
+                        <div class="preco-viagem">R$ {{ carona.valor }}</div>
+                    </div>
+                {% endfor %}
+            {% else %}
+                <p>Não encontramos caronas para o destino informado.</p>
+            {% endif %}
         </div>
+        
         <aside class="filtros">
             <h3>Ordenação por:</h3>
             <div class="opcao-filtro">
@@ -81,6 +88,26 @@
             <button class="aplica-filtro">Aplicar filtros <i class="fas fa-arrow-right"></i></button>
         </aside>
     </main>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const searchInput = document.getElementById('search');
+            const viagemItems = document.querySelectorAll('.item-viagem');
+    
+            searchInput.addEventListener('input', function() {
+                const searchTerm = searchInput.value.toLowerCase(); // Case-insensitive search
+                viagemItems.forEach(item => {
+                    const origemDestino = item.querySelector('.detalhes-viagem h3').textContent.toLowerCase();
+                    if (origemDestino.includes(searchTerm)) {
+                        item.style.display = '';  // Show item
+                    } else {
+                        item.style.display = 'none';  // Hide item
+                    }
+                });
+            });
+        });
+    </script>
+    
 
 </body>
 

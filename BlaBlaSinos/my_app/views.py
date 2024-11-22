@@ -73,3 +73,13 @@ def cadastrarCaronas(request):
         else:
             return render(request, 'index_motorista.html', {'error': 'Preencha todos os campos!'})
     return render(request, 'index_motorista.html')
+
+def listar_caronas(request):
+    query = request.GET.get('search')  # Captura o termo de pesquisa
+    caronas = Carona.objects.all()
+
+    if query:
+        caronas = caronas.filter(origem__icontains=query)
+        caronas = caronas.filter(destino__icontains=query)
+
+    return render(request, 'index_carona.html', {'caronas': caronas})
