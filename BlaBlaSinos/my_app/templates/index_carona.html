@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Caronas</title>
+
+    {% load static %}
+    <!-- Link para as pastas -->
+    <link rel="stylesheet" href="{% static 'prototype.css' %}">
+    <!-- <link rel="stylesheet" href="{% static '/img/' %}"> -->
+
+    <!-- Link para fonte -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+
+    <!-- Link para ícones -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+        integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+</head>
+
+<body class="main-bg">
+    <!-- Menu de navegação -->
+    <header class="menu-nav menu-content">
+        <h1>
+            <a href="#">BlablaSinos</a>
+        </h1>
+
+        <nav>
+            <ul>
+                <li><a href="#">Caronas</a></li>
+                <li><a href="#">Suporte</a></li>
+                <li><a href="#">Quem somos</a></li>
+                <li><a href="#"><i class="fas fa-search" style="font-size: 1.5rem;"></i></a></li>
+                <li><a href="#" class="btn-motorista">Seja um motorista</a></li>
+                <li><a href="#"><i class="fas fa-user-circle" style="font-size: 1.5rem;"></i></a></li>
+            </ul>
+        </nav>
+    </header>
+    <!-- Pesquisa de caronas "Local destino" -->
+    <section class="search-section">
+        <h2 class="pesquisa-carona">Pesquisar caronas:</h2>
+        <div class="search-bar">
+            <input type="text" id="search" placeholder="Local destino">
+            <button><i class="fas fa-search"></i></button>
+        </div>
+    </section>
+    <!-- Viagens adicionadas recentemente -->
+    <h2 class="viagens-add-txt">Viagens adicionadas recentemente</h2>
+    <main class="viagens-adicionadas-menu">
+        <div class="viagens-lista">
+            <div class="item-viagem">
+                <label class="radio-container">
+                    <input type="radio" name="viagem">
+                    <span class="custom-radio"></span>
+                </label>
+                <i class="fas fa-car" style="font-size: 3rem; color: #21409a;"></i>
+                <div class="detalhes-viagem">
+                    <h3>Hamburgo Velho, Novo Hamburgo</h3>
+                    <span>Saída: 22:20</span>
+                </div>
+                <div class="preco-viagem">R$ 10,00</div>
+            </div>
+            <div class="item-viagem">
+                <label class="radio-container">
+                    <input type="radio" name="viagem">
+                    <span class="custom-radio"></span>
+                </label>
+                <i class="fas fa-car" style="font-size: 3rem; color: #21409a;"></i>
+                <div class="detalhes-viagem">
+                    <h3>Cidade Baixa, Porto Alegre</h3>
+                    <span>Saída: 23:00</span>
+                </div>
+                <div class="preco-viagem">R$ 28,00</div>
+            </div>
+            <div class="item-viagem">
+                <label class="radio-container">
+                    <input type="radio" name="viagem">
+                    <span class="custom-radio"></span>
+                </label>
+                <i class="fas fa-car" style="font-size: 3rem; color: #21409a;"></i>
+                <div class="detalhes-viagem">
+                    <h3>Cidade Baixa, Porto Alegre</h3>
+                    <span>Saída: 23:00</span>
+                </div>
+                <div class="preco-viagem">R$ 28,00</div>
+            </div>
+        </div>
+        <aside class="filtros">
+            <h3>Ordenação por:</h3>
+            <div class="opcao-filtro">
+                <label><input type="radio" name="filtro"> Saída mais cedo</label>
+                <label><input type="radio" name="filtro"> Preço mais baixo</label>
+                <label><input type="radio" name="filtro"> Perto do ponto de partida</label>
+                <label><input type="radio" name="filtro"> Perto do ponto de chegada</label>
+            </div>
+            <button class="aplica-filtro">Aplicar filtros <i class="fas fa-arrow-right"></i></button>
+        </aside>
+    </main>
+</body>
+
+</html>
