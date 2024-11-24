@@ -1,0 +1,67 @@
+/* Typical Device Breakpoints 
+Smaller smartphones: 0-480px
+Tablets & larger smartphones: 481-768px
+Laptops, and small desktop: 769-1279
+Larger desktops & monitors: 1280+
+*/
+
+:root {
+    --gap: 2rem;
+    --white-color: #f0f0f0;
+    --dark-gray-color: #545454;
+    --primary-color: #21409a;
+}
+
+@media screen and (min-width: 768px) and (max-width: 1281px){
+    .card {
+        width: 80%;
+        max-width: none;
+        display: flex;
+        align-items: center;
+    }
+
+    .img-card {
+        display: flex;
+        align-items: center;
+        text-align: center;
+        justify-content: center;
+        width: 50%;
+    }
+}
+
+@media screen and (min-width: 1280px) {
+    .card {
+        width: 80%;
+        max-width: none;
+        display: flex;
+        align-items: center;
+    }
+
+    .img-card {
+        display: flex;
+        align-items: center;
+        text-align: center;
+        justify-content: center;
+        width: 65%;
+        margin-right: 20px;
+    }
+
+    .form :is(input, button) {
+        width: 280px;
+        height: 50px;
+        border-radius: 6px;
+        border: 0;
+    }
+
+    .form button {
+        cursor: pointer;
+        width: 100%;
+        height: 50px;
+        padding: 0 16px;
+        background: var(--primary-color);
+        color: #f9f9f9;
+        border: 0;
+        font-family: 'Poppins';
+        font-size: large;
+    }
+}
