@@ -1,0 +1,5 @@
+/* CSS para fazer os imports dos css's globais de uma só vez, facilitando o caminho */
+@import './elements.css';
+@import './fonts.css';
+@import './normalize.css';
+@import './variables.css';
