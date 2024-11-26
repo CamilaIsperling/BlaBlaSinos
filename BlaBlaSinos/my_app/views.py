@@ -6,7 +6,7 @@ from django.contrib.auth import authenticate, login
 from .models import Carona
 
 def index(request):
-    return render(request, 'index.html')  # Certifique-se de que o caminho está correto
+    return render(request, 'index.html') 
     
 def login_view(request):
     if request.method == 'POST':
@@ -16,11 +16,11 @@ def login_view(request):
         
         if user is not None:
             login(request, user)
-            return redirect('index')  # atualmente redirecionando para a landing page
+            return redirect('index')  
         else:
             messages.error(request, "Usuário não encontrado.")
             
-    return render(request, 'login.html')  # Certifique-se que 'login.html' está na pasta templates
+    return render(request, 'login.html')  
 
 def register_view(request):
     if request.method == 'POST':
@@ -45,8 +45,7 @@ def register_view(request):
     return render(request, 'register.html')
 
 def caronas(request):
-    # Pega as 5 últimas caronas cadastradas e ordena pelas mais recentes
-    caronas = Carona.objects.all().order_by('-created_at')
+    caronas = Carona.objects.all().order_by('-created_at')[:5]
     return render(request, 'index_carona.html', {'caronas': caronas})
 
 def cadastrarCaronas(request):
@@ -55,18 +54,17 @@ def cadastrarCaronas(request):
         destino = request.POST.get('destino')
         passageiros = request.POST.get('passageiros')
         valor = request.POST.get('preco')
-        horario_saida = request.POST.get('horario_saida')  # Pega o horário de saída
-        horario_chegada = request.POST.get('horario_chegada')  # Pega o horário de chegada
+        horario_saida = request.POST.get('horario_saida')  
+        horario_chegada = request.POST.get('horario_chegada')  
 
         if origem and destino and passageiros and valor and horario_saida and horario_chegada:
-            # Cria e salva a carona
             carona = Carona(
                 origem=origem, 
                 destino=destino, 
                 passageiros=passageiros, 
                 valor=valor, 
-                horario_saida=horario_saida,  # Salvando o horário de saída
-                horario_chegada=horario_chegada  # Salvando o horário de chegada
+                horario_saida=horario_saida,  
+                horario_chegada=horario_chegada 
             )
             carona.save()
             return redirect('index_carona')
@@ -75,7 +73,7 @@ def cadastrarCaronas(request):
     return render(request, 'index_motorista.html')
 
 def listar_caronas(request):
-    query = request.GET.get('search')  # Captura o termo de pesquisa
+    query = request.GET.get('search') 
     caronas = Carona.objects.all()
 
     if query:
