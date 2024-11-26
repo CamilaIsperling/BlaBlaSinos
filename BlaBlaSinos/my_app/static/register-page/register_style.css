@@ -1,0 +1,112 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+:root {
+    --primary-color: #21409a;
+    --white-color: #f0f0f0;
+    --dark-gray-color: #545454;
+}
+
+html {
+    font-family: 'Poppins';
+}
+
+.main-bg {
+    background-image: url('../img/endless-constellation.svg');
+    background-repeat: repeat;
+}
+
+.card {
+    background-color: var(--white-color);
+    width: 400px;
+    max-width: 450px;
+    margin: 0 auto;
+    margin-top: 50px;
+    border: 2px solid var(--white-color);
+    border-radius: 10px;
+    background-color: rgba(0, 0, 0, 0.17);
+    backdrop-filter: blur(10px);
+}
+
+.img-card {
+    display: none;
+}
+
+.main-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.sign-up-intro {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px 0;
+}
+
+.sign-up-intro h2 {
+    color: var(--white-color);
+    font-size: 1.5rem;
+}
+
+.sign-up-intro h3 {
+    color: rgba(255, 255, 255, 0.38);
+    font-size: 1rem;
+    margin: 0 10px;
+    text-align: center;
+    justify-content: center;
+}
+
+.form {
+    width: 80%;
+    margin: auto;
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+}
+
+.form :is(input, button) {
+    width: 240px;
+    height: 50px;
+    border-radius: 6px;
+    border: 0;
+}
+
+.form input {
+    color: rgba(255, 255, 255, 0.96);
+    background: rgba(255, 255, 255, 0.08);
+    font-family: inherit;
+    font-size: 16px;
+    padding: 0 16px;
+}
+
+.form input:focus {
+    outline: 1.5px solid var(--white-color);
+}
+
+.form input::placeholder {
+    color: rgba(255, 255, 255, 0.38);
+}
+
+.form button {
+    cursor: pointer;
+    width: 100%;
+    height: 50px;
+    padding: 0 16px;
+    background: var(--primary-color);
+    color: #f9f9f9;
+    border: 0;
+    font-family: 'Poppins';
+    font-size: large;
+}
+
+.form button:hover {
+    background-color: #1a3891;
+}
