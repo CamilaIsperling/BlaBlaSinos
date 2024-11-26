@@ -7,7 +7,9 @@
     <title>Protype BlablaSinos</title>
 
     <!-- Link para as pastas -->
-    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <link rel="stylesheet" href="{% static '/css/pages/index/index-style.css' %}">
+    <link rel="stylesheet" href="{% static '/css/pages/index/index-media-query.css' %}">
+
     
     <!-- Link para fonte -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -20,15 +22,12 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 
 </head>
-<body class="main-bg">
+<body onresize="mudouTamanho()">
     <!-- Menu de navegação -->
-    <aside class="menu">
-        <section class="main-content menu-content">
-            <h1>
-                <a href="#">BlablaSinos</a>
-            </h1>
-
-            <nav>
+    <header class="menu-nav menu-content">
+            <h1><a href="#">BlablaSinos</a></h1>
+            <i id="hamburguer" class="fas fa-bars" onclick="clickMenu()"></i>
+            <menu id="itens" class="menu-itens">
                 <ul>
                     <li><a href="#intro">Intro</a></li>
                     <li><a href="#security">Segurança</a></li>
@@ -36,49 +35,38 @@
                     <li><a href="#">Contato</a></li>
                     <li><a href="{% url 'login' %}">Login</a></li>
                 </ul>
-            </nav>
-        </section>
-    </aside>
+            </menu>
+    </header>
 
     <div class="menu-spacing"></div>
 
-    <!-- Sessão com as 3 características primárias -->
-    <section id="intro" class="intro main-bg section-main-height">
-        <div class="intro-content">
-            <div class="intro-img-text">
-                <div class="intro-text">
-                    <span>Viagens mais baratas</span>
-                </div>
-                <div class="intro-img">
-                     <img class="zj5dd90" loading="eager" decoding="sync" src="{% static '/img/carpool_blue_bus_large-30b3097694f4e465398f.svg' %}" alt="" height="100%" width="100%" fetchpriority="high">
-                </div>
+        <section class="section-intro section-rule">
+            <div id="intro" class="intro-img">
+                <img src="/static/img/carpool_blue_bus_large-30b3097694f4e465398f.svg" alt="">
             </div>
-            <div class="intro-top-3">
-                <div class="intro-t1">
+            <div class="intro-top-3 content-rule">
+                <div class="intro-t1 card-t3">
                     <i class="far fa-money-bill-alt"></i>
                     <h2>Viagens com preços baixos</h2>
                     <p>Não importa para onde você vai, de ônibus ou de carona, encontre a viagem perfeita entre nossos vários destinos e trajetos, todos com preços baixos</p>
                 </div>
-                <div class="intro-t2">
+                <div class="intro-t2 card-t3">
                     <i class="far fa-address-card"></i>
                     <h2>Confie em quem viaja com você</h2>
                     <p>Para nós, é muito importante conhecer cada um dos nossos membros e parceiros de ônibus. Conferimos as avaliações, perfis e documentação, assim você sempre sabe com quem vai viajar e pode reservar sua viagem com tranquilidade e segurança na nossa plataforma</p>
                 </div>
-                <div class="intro-t3">
+                <div class="intro-t3 card-t3">
                     <i class="fas fa-car-alt"></i>
                     <h2>Procure, clique e viaje!</h2>
                     <p>Reservar uma viagem nunca foi tão fácil! Graças à nossa tecnologia e à simplicidade do app, você reserva sua viagem em poucos minutos</p>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <!-- Sessão falando sobre segurança -->
-    <section id="security" class="main-bg section-second-height">
-        <div class="security-content">
-            <div class="security-img-text">
+        </section>
+        <!-- Sessão de segurança -->
+        <section id="security" class="section-security section-rule">
+            <div class="security-content content-rule">
                 <div class="security-img">
-                    <img src="{% static '/img/undraw_security_on_re_e491.svg' %}" alt="imagem aqui">
+                    <img src="/static/img/undraw_security_on_re_e491.svg" alt="img security">
                 </div>
                 <div class="security-text-button">
                     <h2>Segurança</h2>
@@ -86,47 +74,42 @@
                     <button>Saiba mais</button>
                 </div>
             </div>
-        </div>
-    </section>
-
-<!-- Sessão sobre Caronas -->
-<section id="ride" class="white-bg section-second-height">
-    <div class="ride-content">
-        <div class="ride-text-img">
-            <!-- Texto da seção -->
-            <div class="ride-text">
-                <h2 class="ride-title">Carona</h2>
-                <p class="ride-description">
-                    Cadastre-se como condutor e economize nos custos da viagem levando passageiros. São só alguns minutos para oferecer uma carona.
-                </p>
-                <!-- Botões de ação -->
+        </section>
+        <!-- Sessão de carona -->
+        <section id="ride" class="section-ride section-rule">
+            <div class="ride-content content-rule">
+                <div class="ride-img">
+                    <img src="/static/img/undraw_order_ride_re_372k.svg" alt="img ride">
+                </div>
+                <div class="ride-text-buttons">
+                <div class="ride-text">
+                    <h2>Carona</h2>
+                    <p>Cadastre-se como condutor e economize nos custos da viagem levando passageiros. São só alguns minutos para oferecer uma carona.</p>
+                </div>
                 <div class="ride-buttons">
-                    <a href="{% url 'cadastrarCaronas' %}" class="button-style">Oferecer Carona</a>
-                    <a href="{% url 'index_carona' %}" class="button-style2">Pegar uma Carona</a>
+                    <a href="{% url 'index_motorista' %}" class="button-style">Oferecer Carona</a>
+                    <a href="{% url 'index_carona' %}" class="button-style">Pegar uma Carona</a>
                 </div>
             </div>
-            <!-- Imagem da seção -->
-            <div class="ride-img">
-                <img src="{% static '/img/undraw_order_ride_re_372k.svg' %}" alt="Corrida compartilhada">
             </div>
-        </div>
-    </div>
-</section>
+        </section>
 
-    <!-- Sessão das 3 viagens mais comuns -->
-    <section class="main-bg section-third-height">
-        <div class="common-ride-content">
-            <div class="common-ride-text">
-                <h2>Uma carona pra onde?</h2>
-            </div>
-            <div class="common-ride-btns">
-                <ul>
-                    <li class="box-ride"><a href="">NH <i class="fas fa-chevron-right"></i> Unisinos São Leo</a></li>
-                    <li class="box-ride"><a href="">Unisinos São leo <i class="fas fa-chevron-right"></i> Unisinos POA</a></li>
-                    <li class="box-ride"><a href="">POA <i class="fas fa-chevron-right"></i> Unisinos São Leo</a></li>
-                </ul>
-            </div>
-        </div>
-    </section>
+    <script>
+        function mudouTamanho() {
+            if (window.innerWidth >= 768) {
+                itens.style.display = 'block'
+            } else {
+                itens.style.display = 'none'
+            }
+        }
+
+        function clickMenu() {
+            if (itens.style.display == 'block') {
+                itens.style.display = 'none'
+            } else {
+                itens.style.display = 'block'
+            }
+        }
+    </script>
 </body>
 </html>

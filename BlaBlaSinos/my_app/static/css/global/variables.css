@@ -1,0 +1,8 @@
+/* CSS para armazenar as variaveis do projeto globais */
+:root {
+    --primary-color: #21409a;
+    --absolute-black-color: #000000;
+    --white-color: #f0f0f0;
+    --dark-gray-color: #545454;
+    --gap: 2rem;
+}

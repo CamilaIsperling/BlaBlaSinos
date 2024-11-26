@@ -32,12 +32,8 @@
         <menu id="itens" class="menu-itens">
             <ul>
                 <li><a href="{% url 'index_carona' %}">Caronas</a></li>
-                <li><a href="{% url 'index' %}">Suporte</a></li>
-                <li><a href="{% url 'index' %}">Quem somos</a></li>
-                <li><a href="#"><i class="fas fa-search" style="font-size: 1.2rem;"></i></a></li>
-                <li><a href="{% url 'cadastrarCaronas' %}">Cadastrar viagem</a></li>
                 <li><a href="{% url 'register' %}">Seja um motorista</a></li>
-                <li><a href="#"><i class="fas fa-user-circle" style="font-size: 1.2rem;"></i></a></li>
+                <li><a href="{% url 'login' %}"><i class="fas fa-user-circle" style="font-size: 1.2rem;"></i></a></li>
             </ul>
         </menu>
     </header>
@@ -49,7 +45,7 @@
         </div>
         <!-- Card com os forms para preencher -->
         <div class="card">
-            <form method="POST" action="{% url 'cadastrarCaronas' %}">
+            <form method="POST" action="{% url 'index_motorista' %}">
                 {% csrf_token %}
                 <div class="orig-div">
                     <label for="" class="orig-label">Origem:</label>

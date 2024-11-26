@@ -14,8 +14,8 @@ html {
 }
 
 .main-bg {
-    background-image: url('../img/endless-constellation.svg');
-    background-repeat: repeat;
+    background-image: url('../../../img/endless-constellation.svg');
+    background-repeat:repeat;
 }
 
 .card {

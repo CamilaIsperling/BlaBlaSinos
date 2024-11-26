@@ -1,0 +1,6 @@
+/* CSS para aplicar as fontes da página */
+html {
+    font-size: 62.5%;
+    scroll-behavior: smooth;
+    font-family: 'Poppins';
+}
