@@ -81,3 +81,6 @@ def listar_caronas(request):
         caronas = caronas.filter(destino__icontains=query)
 
     return render(request, 'index_carona.html', {'caronas': caronas})
+
+def seguranca(request):
+    return render(request, 'index_seguranca.html') 
