@@ -40,21 +40,11 @@ class AgendamentoViagem(models.Model):
     valor = models.DecimalField(max_digits=10, decimal_places=2)
     status = models.CharField(max_length=15, choices=Status, default='agendado')
     data_criacao = models.DateTimeField(auto_now_add=True)
-    
+    hhorario_saida = models.TimeField(default="00:00:00")
+    horario_chegada = models.TimeField(default="00:00:00")
+
     def __str__(self):
         return f"Viagem {self.id} - {self.pessoa.nome}"
-
-class AgendamentoVisita(models.Model):
-    pessoa = models.ForeignKey(Pessoa, on_delete=models.CASCADE)
-    data_viagem = models.DateTimeField()
-    cidade_origem = models.CharField(max_length=100)
-    bairro_origem = models.CharField(max_length=100)
-    cidade_destino = models.CharField(max_length=100)
-    bairro_destino = models.CharField(max_length=100)
-    data_criacao = models.DateTimeField(auto_now_add=True)
-    
-    def __str__(self):
-        return f"Visita {self.id} - {self.pessoa.nome}"
 
 class Avaliacao(models.Model):
     viagem = models.ForeignKey(AgendamentoViagem, on_delete=models.CASCADE)
@@ -108,3 +98,15 @@ class ConfiguracaoUsuario(models.Model):
     
     def __str__(self):
         return f"Configuração do Usuário {self.usuario.nome}"
+    
+class Carona(models.Model):
+    origem = models.CharField(max_length=100)
+    destino = models.CharField(max_length=100)
+    passageiros = models.IntegerField()
+    valor = models.DecimalField(max_digits=10, decimal_places=2)
+    horario_saida = models.TimeField()
+    horario_chegada = models.TimeField()
+    created_at = models.DateTimeField(auto_now_add=True)  # Novo campo
+
+    def __str__(self):
+        return f'{self.origem} - {self.destino}'

@@ -3,6 +3,7 @@ from django.contrib.auth.models import User
 from django.contrib import messages
 from django.shortcuts import redirect
 from django.contrib.auth import authenticate, login
+from .models import Carona
 
 def index(request):
     return render(request, 'index.html')  # Certifique-se de que o caminho está correto
@@ -44,7 +45,41 @@ def register_view(request):
     return render(request, 'register.html')
 
 def caronas(request):
-    return render(request, 'index_carona.html')
+    # Pega as 5 últimas caronas cadastradas e ordena pelas mais recentes
+    caronas = Carona.objects.all().order_by('-created_at')
+    return render(request, 'index_carona.html', {'caronas': caronas})
 
 def cadastrarCaronas(request):
+    if request.method == 'POST':
+        origem = request.POST.get('origem')
+        destino = request.POST.get('destino')
+        passageiros = request.POST.get('passageiros')
+        valor = request.POST.get('preco')
+        horario_saida = request.POST.get('horario_saida')  # Pega o horário de saída
+        horario_chegada = request.POST.get('horario_chegada')  # Pega o horário de chegada
+
+        if origem and destino and passageiros and valor and horario_saida and horario_chegada:
+            # Cria e salva a carona
+            carona = Carona(
+                origem=origem, 
+                destino=destino, 
+                passageiros=passageiros, 
+                valor=valor, 
+                horario_saida=horario_saida,  # Salvando o horário de saída
+                horario_chegada=horario_chegada  # Salvando o horário de chegada
+            )
+            carona.save()
+            return redirect('index_carona')
+        else:
+            return render(request, 'index_motorista.html', {'error': 'Preencha todos os campos!'})
     return render(request, 'index_motorista.html')
+
+def listar_caronas(request):
+    query = request.GET.get('search')  # Captura o termo de pesquisa
+    caronas = Carona.objects.all()
+
+    if query:
+        caronas = caronas.filter(origem__icontains=query)
+        caronas = caronas.filter(destino__icontains=query)
+
+    return render(request, 'index_carona.html', {'caronas': caronas})

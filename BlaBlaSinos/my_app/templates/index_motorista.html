@@ -27,16 +27,16 @@
 <body onresize="mudouTamanho()">
     <!-- Menu de navegação -->
     <header class="menu-nav menu-content">
-        <h1><a href="#">BlablaSinos</a></h1>
+        <h1><a href="{% url 'index' %}">BlablaSinos</a></h1>
         <i id="hamburguer" class="fas fa-bars" onclick="clickMenu()"></i>
         <menu id="itens" class="menu-itens">
             <ul>
-                <li><a href="#">Caronas</a></li>
-                <li><a href="#">Suporte</a></li>
-                <li><a href="#">Quem somos</a></li>
+                <li><a href="{% url 'index_carona' %}">Caronas</a></li>
+                <li><a href="{% url 'index' %}">Suporte</a></li>
+                <li><a href="{% url 'index' %}">Quem somos</a></li>
                 <li><a href="#"><i class="fas fa-search" style="font-size: 1.2rem;"></i></a></li>
-                <li><a href="#">Cadastrar viagem</a></li>
-                <li><a href="#">Seja um motorista</a></li>
+                <li><a href="{% url 'cadastrarCaronas' %}">Cadastrar viagem</a></li>
+                <li><a href="{% url 'register' %}">Seja um motorista</a></li>
                 <li><a href="#"><i class="fas fa-user-circle" style="font-size: 1.2rem;"></i></a></li>
             </ul>
         </menu>
@@ -49,19 +49,23 @@
         </div>
         <!-- Card com os forms para preencher -->
         <div class="card">
-            <form action="#">
+            <form method="POST" action="{% url 'cadastrarCaronas' %}">
+                {% csrf_token %}
                 <div class="orig-div">
                     <label for="" class="orig-label">Origem:</label>
-                    <input type="text" id="orig-local" class="orig-input" placeholder="Ex: Novo Hamburgo"><br>
+                    <input type="text" name="origem" class="orig-input" placeholder="Ex: Novo Hamburgo"><br>               
+                    <label for="horario_saida" class="orig-label">Horário:</label>
+                    <input type="time" name="horario_saida" class="orig-input"><br>
                 </div>
                 <div class="dest-div">
                     <label for="" class="dest-label">Destino:</label>
-                    <input type="text" id="dest-local" class="dest-input" placeholder="Ex: Unisinos São Leopoldo"><br>
+                    <input type="text" name="destino" class="dest-input" placeholder="Ex: Unisinos São Leopoldo"><br>
+                    <label for="horario_chegada" class="orig-label">Horário:</label>
+                    <input type="time" name="horario_chegada" class="orig-input"><br>
                 </div>
                 <div class="passagers-div">
                     <label for="" class="passagers-txt">Passageiros:</label>
-                    <i class="fas fa-user passagers-icone"></i>
-                    <select name="passageiros" id="passageiros" class="passagers-select">
+                    <select name="passageiros" class="passagers-select">
                         <option value="1">1</option>
                         <option value="2">2</option>
                         <option value="3">3</option>
@@ -70,12 +74,15 @@
                 </div>
                 <div class="preco-div">
                     <label for="" class="preco-label">Valor: R$</label>
-                    <input type="text" id="preco-viagem" class="preco-input" placeholder="Ex: 5,00"><br>
+                    <input type="text" name="preco" class="preco-input" placeholder="Ex: 5,00"><br>
                 </div>
                 <div class="btn-div">
-                    <button class="btn-submit">Oferecer carona<i class="fas fa-arrow-right"></i></button>
+                    <button type="submit" class="btn-submit">Oferecer carona<i class="fas fa-arrow-right"></i></button>
                 </div>
             </form>
+            {% if error %}
+            <p style="color: red;">{{ error }}</p>
+            {% endif %}
         </div>
     </main>
     <script>

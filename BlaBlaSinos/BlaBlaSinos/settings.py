@@ -16,6 +16,7 @@ import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
+STATICFILES_DIRS = [os.path.join(BASE_DIR, "static")]
 
 
 # Quick-start development settings - unsuitable for production
@@ -81,7 +82,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'blablasinos',
         'USER': 'root',                     # Substitua pelo seu usuário MySQL
-        'PASSWORD': 'r0dr1g014',            # Substitua pela sua senha MySQL
+        'PASSWORD': '_43690',            # Substitua pela sua senha MySQL
         'HOST': 'localhost',                # Ou o endereço do seu servidor MySQL
         'PORT': '3306',                     # A porta padrão do MySQL'
     }
