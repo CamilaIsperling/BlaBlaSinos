@@ -110,6 +110,7 @@ h1 {
     width: 25px;
     height: 30px;
     background-color: #d8d5d5;
+    cursor: pointer;
 }
 
 .viagens-add-txt {

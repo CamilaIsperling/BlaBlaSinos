@@ -46,7 +46,7 @@ def register_view(request):
 
 def caronas(request):
     # Pega as 5 últimas caronas cadastradas e ordena pelas mais recentes
-    caronas = Carona.objects.all().order_by('-created_at')[:4]
+    caronas = Carona.objects.all().order_by('-created_at')
     return render(request, 'index_carona.html', {'caronas': caronas})
 
 def cadastrarCaronas(request):

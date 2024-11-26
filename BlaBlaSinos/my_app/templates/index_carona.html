@@ -34,12 +34,12 @@
 
         <nav>
             <ul>
-                <li><a href="#">Caronas</a></li>
-                <li><a href="#">Suporte</a></li>
-                <li><a href="#">Quem somos</a></li>
+                <li><a href="{% url 'index' %}">Caronas</a></li>
+                <li><a href="{% url 'index' %}">Suporte</a></li>
+                <li><a href="{% url 'index' %}">Quem somos</a></li>
                 <li><a href="#"><i class="fas fa-search" style="font-size: 1.5rem;"></i></a></li>
-                <li><a href="#" class="btn-motorista">Seja um motorista</a></li>
-                <li><a href="#"><i class="fas fa-user-circle" style="font-size: 1.5rem;"></i></a></li>
+                <li><a href="{% url 'cadastrarCaronas' %}" class="btn-motorista">Seja um motorista</a></li>
+                <li><a href="{% url 'login' %}"><i class="fas fa-user-circle" style="font-size: 1.5rem;"></i></a></li>
             </ul>
         </nav>
     </header>
@@ -66,8 +66,8 @@
                         </label>
                         <i class="fas fa-car" style="font-size: 3rem; color: #21409a;"></i>
                         <div class="detalhes-viagem">
-                            <h3>{{ carona.origem }}, {{ carona.destino }}</h3>
-                            <span>Saída: {{ carona.horario_saida|date:"H:i" }}</span>
+                            <h3>{{ carona.origem }},     {{ carona.destino }}</h3>
+                            <span>Saída: {{ carona.horario_saida|date:"H:i" }} | Vagas: {{ carona.passageiros }}</span>
                         </div>
                         <div class="preco-viagem">R$ {{ carona.valor }}</div>
                     </div>
@@ -80,28 +80,72 @@
         <aside class="filtros">
             <h3>Ordenação por:</h3>
             <div class="opcao-filtro">
-                <label><input type="radio" name="filtro"> Saída mais cedo</label>
-                <label><input type="radio" name="filtro"> Preço mais baixo</label>
-                <label><input type="radio" name="filtro"> Perto do ponto de partida</label>
-                <label><input type="radio" name="filtro"> Perto do ponto de chegada</label>
+                <label><input type="radio" name="filtro" value="saida_cedo" {% if filtro == 'saida_cedo' %}checked{% endif %}> Saída mais cedo</label>
+                <label><input type="radio" name="filtro" value="saida_tarde" {% if filtro == 'saida_tarde' %}checked{% endif %}> Saída mais tarde</label>
+                <label><input type="radio" name="filtro" value="preco" {% if filtro == 'preco' %}checked{% endif %}> Preço mais baixo</label>
+                <label><input type="radio" name="filtro" value="vagas" {% if filtro == 'vagas' %}checked{% endif %}> Vagas</label>
             </div>
-            <button class="aplica-filtro">Aplicar filtros <i class="fas fa-arrow-right"></i></button>
+            <button class="aplica-filtro" type="submit">Aplicar filtros <i class="fas fa-arrow-right"></i></button>
         </aside>
     </main>
 
     <script>
+        document.addEventListener("DOMContentLoaded", function () {
+    const filtroRadios = document.querySelectorAll("input[name='filtro']");
+    const aplicaFiltroButton = document.querySelector(".aplica-filtro");
+    const viagemItems = document.querySelectorAll(".item-viagem");
+
+    aplicaFiltroButton.addEventListener("click", function () {
+        const filtroSelecionado = document.querySelector("input[name='filtro']:checked");
+        if (!filtroSelecionado) {
+            alert("Por favor, selecione um filtro!");
+            return;
+        }
+
+        const criterio = filtroSelecionado.value;
+
+        const caronas = Array.from(viagemItems).map(item => {
+            const horarioTexto = item.querySelector(".detalhes-viagem span").textContent.match(/Saída: (\d{2}:\d{2})/)[1];
+            const horarioDate = new Date(`1970-01-01T${horarioTexto}:00`);
+            const preco = parseFloat(item.querySelector(".preco-viagem").textContent.replace("R$", "").trim());
+            const passageiros = parseInt(item.querySelector(".detalhes-viagem span").textContent.split("Vagas: ")[1]);
+
+            return {
+                element: item,
+                horario: horarioDate,
+                valor: preco,
+                passageiros: passageiros
+            };
+        });
+
+        if (criterio === "preco") {
+            caronas.sort((a, b) => a.valor - b.valor);
+        } else if (criterio === "saida_cedo") {
+            caronas.sort((a, b) => a.horario - b.horario);
+        } else if (criterio === "saida_tarde") {
+            caronas.sort((a, b) => b.horario - a.horario);
+        } else if (criterio === "vagas") {
+            caronas.sort((a, b) => b.passageiros - a.passageiros);
+        }
+
+        const listaCaronas = document.querySelector(".viagens-lista");
+        listaCaronas.innerHTML = "";
+        caronas.forEach(carona => listaCaronas.appendChild(carona.element));
+    });
+});
+
         document.addEventListener("DOMContentLoaded", function() {
             const searchInput = document.getElementById('search');
             const viagemItems = document.querySelectorAll('.item-viagem');
     
             searchInput.addEventListener('input', function() {
-                const searchTerm = searchInput.value.toLowerCase(); // Case-insensitive search
+                const searchTerm = searchInput.value.toLowerCase();
                 viagemItems.forEach(item => {
                     const origemDestino = item.querySelector('.detalhes-viagem h3').textContent.toLowerCase();
                     if (origemDestino.includes(searchTerm)) {
-                        item.style.display = '';  // Show item
+                        item.style.display = '';
                     } else {
-                        item.style.display = 'none';  // Hide item
+                        item.style.display = 'none';
                     }
                 });
             });

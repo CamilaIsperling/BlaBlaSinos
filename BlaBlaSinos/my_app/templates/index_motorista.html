@@ -31,12 +31,12 @@
         <i id="hamburguer" class="fas fa-bars" onclick="clickMenu()"></i>
         <menu id="itens" class="menu-itens">
             <ul>
-                <li><a href="#">Caronas</a></li>
-                <li><a href="#">Suporte</a></li>
-                <li><a href="#">Quem somos</a></li>
+                <li><a href="{% url 'index_carona' %}">Caronas</a></li>
+                <li><a href="{% url 'index' %}">Suporte</a></li>
+                <li><a href="{% url 'index' %}">Quem somos</a></li>
                 <li><a href="#"><i class="fas fa-search" style="font-size: 1.2rem;"></i></a></li>
-                <li><a href="#">Cadastrar viagem</a></li>
-                <li><a href="#">Seja um motorista</a></li>
+                <li><a href="{% url 'cadastrarCaronas' %}">Cadastrar viagem</a></li>
+                <li><a href="{% url 'register' %}">Seja um motorista</a></li>
                 <li><a href="#"><i class="fas fa-user-circle" style="font-size: 1.2rem;"></i></a></li>
             </ul>
         </menu>
