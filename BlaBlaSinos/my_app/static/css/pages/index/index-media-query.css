@@ -1,10 +1,3 @@
-/* Typical Device Breakpoints 
-Smaller smartphones: 0-480px
-Tablets & larger smartphones: 481-768px
-Laptops, and small desktop: 769-1279
-Larger desktops & monitors: 1280+
-*/
-
 @import '../../global/global.css';
 @import './partials/section-1.css';
 @import './partials/section-security.css';
