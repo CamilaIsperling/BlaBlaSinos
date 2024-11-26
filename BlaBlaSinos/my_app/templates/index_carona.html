@@ -77,17 +77,22 @@
             {% endif %}
         </div>
         
-        <aside class="filtros">
+        <aside 
+        class="filtros">
             <h3>Ordenação por:</h3>
             <div class="opcao-filtro">
+                <label><input type="radio" name="filtro" value="vagas" {% if filtro == 'vagas' %}checked{% endif %}> Vagas</label>
                 <label><input type="radio" name="filtro" value="saida_cedo" {% if filtro == 'saida_cedo' %}checked{% endif %}> Saída mais cedo</label>
                 <label><input type="radio" name="filtro" value="saida_tarde" {% if filtro == 'saida_tarde' %}checked{% endif %}> Saída mais tarde</label>
-                <label><input type="radio" name="filtro" value="preco" {% if filtro == 'preco' %}checked{% endif %}> Preço mais baixo</label>
-                <label><input type="radio" name="filtro" value="vagas" {% if filtro == 'vagas' %}checked{% endif %}> Vagas</label>
+                <label><input type="radio" name="filtro" value="preco" {% if filtro == 'preco' %}checked{% endif %}> Preço mais baixo</label>            
+            </div>
+            <div class="opcao-filtro proximidade"> 
+                <h3>Proximidade:</h3>  
+                <label><input type="radio" name="filtro" value="proximidade_partida" disabled> Perto do ponto de partida</label>
+                <label><input type="radio" name="filtro" value="proximidade_chegada" disabled> Perto do ponto de chegada</label>
             </div>
             <button class="aplica-filtro" type="submit">Aplicar filtros <i class="fas fa-arrow-right"></i></button>
         </aside>
-    </main>
 
     <script>
         document.addEventListener("DOMContentLoaded", function () {
@@ -128,9 +133,11 @@
             caronas.sort((a, b) => b.passageiros - a.passageiros);
         }
 
+        const top5Caronas = caronas.slice(0, 5);
+
         const listaCaronas = document.querySelector(".viagens-lista");
         listaCaronas.innerHTML = "";
-        caronas.forEach(carona => listaCaronas.appendChild(carona.element));
+        top5Caronas.forEach(carona => listaCaronas.appendChild(carona.element));
     });
 });
 
