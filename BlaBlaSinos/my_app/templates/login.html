@@ -1,15 +1,15 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login Page</title>
+    <title>BlaBlaSinos Login</title>
 
     <!-- Link para as pastas -->
-    {% load static %}
-    <link rel="stylesheet" href="{% static 'login-page/login_styles.css' %}">
-    <link rel="stylesheet" href="{% static 'login-page/login_media_query.css' %}">
-    
+    <link rel="stylesheet" href="{% static /css/pages/login/login_styles.css %}">
+    <link rel="stylesheet" href="{% static /css/pages/login/login_media_query.css %}">
+
     <!-- Link para fonte -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -19,14 +19,13 @@
 <body class="main-bg">
     <div class="card">
         <div class="img-card">
-            <img src="/static/img/logo_escrito.png" alt="">
+            <img src="/img/logo_escrito.png" alt="">
         </div>
         <div class="main-card">
         <div class="login-intro">
             <h2>Login</h2>
             <h3>Preenche com os seus dados de login:</h3>
         </div>
-
         {% if messages %}
             <ul>
                 {% for message in messages %}
@@ -34,20 +33,21 @@
                 {% endfor %}
             </ul>
         {% endif %}
-        
-        <form class="form" method="post">
-            {% csrf_token %}
-            <input type="text" name="username" placeholder="Username" required>
-            <input type="password" name="password" placeholder="Password" required>
-            <label>
-                <input type="checkbox">
-                <span class="checkbox-text">
-                    Mantenha-me logado
-                </span>
-            </label>
-            <button type="submit">Login</button>
-        </form>
-        <p class="login-sign-up">Não possui uma conta? <a href="{% url 'register' %}">Criar conta</a></p>
+
+            <form class="form" method="post">
+                {% csrf_token %}
+                <input type="text" name="username" placeholder="Username" required>
+                <input type="password" name="password" placeholder="Password" required>
+                <label>
+                    <input type="checkbox">
+                    <span class="checkbox-text">
+                        Mantenha-me logado
+                    </span>
+                </label>
+                    <button type="submit">Login</button>
+                </form>
+            <p class="login-sign-up">Não possui uma conta? <a href="{% url 'register' %}">Criar conta</a></p>
+        </div>
     </div>
 </body>
 </html>

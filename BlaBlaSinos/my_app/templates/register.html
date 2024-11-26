@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -6,9 +7,8 @@
     <title>BlaBlaSinos Registro</title>
 
     <!-- Link para as pastas -->
-    {% load static %}
-    <link rel="stylesheet" href="{% static 'register-page/register_style.css' %}">
-    <link rel="stylesheet" href="{% static 'register-page/register_media_query.css' %}">
+    <link rel="stylesheet" href="{% static /css/pages/register/register_style.css %}">
+    <link rel="stylesheet" href="{% static /css/pages/register/register_media_query.css %}">
 
     <!-- Link para fonte -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -19,7 +19,7 @@
 <body class="main-bg">
     <div class="card">
         <div class="img-card">
-            <img src="/static/img/logo_escrito.png" alt="">
+            <img src="/img/logo_escrito.png" alt="">
         </div>
         <div class="main-card">
             <div class="sign-up-intro">
@@ -27,7 +27,7 @@
                 <h3>Preenche os campos abaixo para <br>criar uma conta:</h3>
             </div>
             <form class="form" method="post">
-                {% csrf_token %}
+                <!-- {% csrf_token %} -->
                 <input type="text" name="username" placeholder="Username" required>
                 <input type="email" name="email" placeholder="Email" required>
                 <input type="password" name="password1" placeholder="Password" required>

@@ -1,0 +1,77 @@
+/* Typical Device Breakpoints 
+Smaller smartphones: 0-480px
+Tablets & larger smartphones: 481-768px
+Laptops, and small desktop: 769-1279
+Larger desktops & monitors: 1280+
+*/
+
+@import '../../global/global.css';
+@import './partials/section-1.css';
+@import './partials/section-security.css';
+@import './partials/section-ride.css';
+
+@media screen and (min-width: 768px) { 
+    i#hamburguer {
+        display: none;
+    }
+
+    .menu-content {
+        display: flex;
+        align-items: center;
+        text-align: center;
+        justify-content: space-between;
+        padding: 10px 0px;
+        border-bottom: 2px solid var(--primary-color);
+    }
+
+    .menu-content h1 {
+        border: 0;
+        margin-left: 2.5rem;
+    }
+
+    .menu-itens {
+        display: block;
+        align-items: center;
+        text-align: center;
+        justify-content: center;
+        margin-right: 2.5rem;
+    }
+
+    .menu-itens ul li {
+        display: inline-block;
+    }
+
+    .menu-itens ul li a {
+        font-size: 2rem;
+        border-radius: 10px;
+        border-bottom: 0;
+        transition: 0.3s ease;
+    }
+
+    /* Parte de top 3 */
+    .intro-top-3 {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(1, 1fr);
+        align-items: baseline;
+        text-align: start;
+        background-color: var(--white-color);
+    }
+
+    .card {
+        margin: 6rem 10px;
+    }
+
+    .card h2 {
+        font-size: 2rem;
+    }
+
+    /* parte da imagem */
+    .intro-img {
+        background-color: var(--white-color);
+    }         
+
+    .intro-img img {
+        width: 100%;
+    }
+}
