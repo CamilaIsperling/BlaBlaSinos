@@ -1,15 +1,14 @@
 {% load static %}
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Viagens de confiança</title>
+    <title>Viagens de Confiança</title>
 
-    <!-- Link para as pastas -->
     <link rel="stylesheet" href="{% static '/css/pages/seguranca/seguranca-style.css' %}">
-    <link rel="stylesheet" href="{% static '/css/pages/index/seguranca-media-query.css' %}">
-    
+    <link rel="stylesheet" href="{% static '/css/pages/seguranca/seguranca-media-query.css' %}">
+
     <!-- Link para fonte -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -24,29 +23,36 @@
 <body onresize="mudouTamanho()">
     <!-- Menu de navegação -->
     <header class="menu-nav menu-content">
-        <h1><a href="#">BlaBlaSinos</a></h1>
+        <h1><a href="#">BlablaSinos</a></h1>
         <i id="hamburguer" class="fas fa-bars" onclick="clickMenu()"></i>
-            <menu id="itens" class="menu-itens">
-                <ul>
-                    <li><a href="#intro">Intro</a></li>
-                    <li><a href="#ride">Caronas</a></li>
-                    <li><a href="{% url 'login' %}">Login</a></li>
-                </ul>
-            </menu>
+        <menu id="itens" class="menu-itens">
+            <ul>
+                <li><a href="{% url 'index' %}">Intro</a></li>
+                <li><a href="#ride">Caronas</a></li>
+                <li><a href="#">Contato</a></li>
+                <li><a href="{% url 'login' %}">Login</a></li>
+            </ul>
+        </menu>
     </header>
 
-    <div class="container" id="azul2-container">
-        <div class="image-box">
-            <img src="imgs/ciberseguranca.jpg" alt="">
+    <!-- imagem -->
+    <div class="container branco-container">
+        <div class="img-box">
+            <img src="/static/img/ciberseguranca.jpeg" alt="">
+            <div class="img-box-txt card">
+                <h2>Segurança do BlaBlaSinos</h2>
+                <span>Para essa sessão mais explicar um pouco mais sobre como funciona a nossa segurança dentro do sistema de caronas, e como usamos algumas técnicas para prevenir fraudes e possíveis problemas</span>
+            </div>
         </div>
     </div>
 
-    <div class="container" id="azul-container">
-        <div class="title">Viagens de confiança</div>
+    <!-- Sessão azul -->
+    <div class="container azul-container">
+        <h2 class="title">Viagens de confiança</h2>
         <div class="row">
             <div class="card">
                 <h3>Foto de perfil</h3>
-                <p>Para facilitar a segurança, incentivamos todos os nossos membros a incluir uma foto de perfil. Isso é fundamental para construir uma comunidade confiável e também ajuda as pessoas a se reconhecerem quando estiverem compartilhando uma carona.<p>
+                <p>Para facilitar a segurança, incentivamos todos os nossos membros a incluir uma foto de perfil. Isso é fundamental para construir uma comunidade confiável e também ajuda as pessoas a se reconhecerem quando estiverem compartilhando uma carona.<p></p>
             </div>
             <div class="card">
                 <h3>Perfil Verificado</h3>
@@ -59,7 +65,8 @@
         </div>
     </div>
 
-    <div class="container" id="branco-container">
+    <!-- Sessão branca -->
+    <div class="container branco-container">
         <div class="title">Sua segurança</div>
         <div class="row">
             <div class="card">
@@ -77,10 +84,11 @@
         </div>
     </div>
 
-    <div class="container" id="azul-container">
+    <!-- Sessão azul -->
+    <div class="container azul-container">
         <div class="title">Ficou com alguma dúvida?</div>
         <div>
-            <div class="card" id="duvida-card">
+            <div class="card duvida-card">
                 <p>Para mais informações, acesse nossa <b>Central de Ajuda</b> ou entre em contato com nossa equipe de Suporte.</p>  
                 <br>
                 <p>*O BlaBlaSinos não pode garantir a veracidade, confiabilidade ou validade das informações sujeitas ao procedimento de verificação.</p>        
@@ -88,6 +96,7 @@
         </div>
     </div>
 
+    <!-- Script para quando mudar o tamanho da página ou clicar no icone de barras -->
     <script>
         function mudouTamanho() {
             if (window.innerWidth >= 768) {

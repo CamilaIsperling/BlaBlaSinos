@@ -71,7 +71,7 @@
                 <div class="security-text-button">
                     <h2>Segurança</h2>
                     <p>No BlablaSinos, estamos dedicados a construir uma comunidade confiável de caronas na rede unisinos. Acesse nossa página de Confiança e Segurança para explorar a gama de recursos que você pode utilizar para sentir mais segurança em sua próxima carona.</p>
-                    <button>Saiba mais</button>
+                    <a href="{% url 'seguranca' %}" class="button-style-white button-style-animation">Saiba mais</a> <!-- Colocar a URL correspondente -->
                 </div>
             </div>
         </section>
@@ -87,8 +87,8 @@
                     <p>Cadastre-se como condutor e economize nos custos da viagem levando passageiros. São só alguns minutos para oferecer uma carona.</p>
                 </div>
                 <div class="ride-buttons">
-                    <a href="{% url 'index_motorista' %}" class="button-style">Oferecer Carona</a>
-                    <a href="{% url 'index_carona' %}" class="button-style">Pegar uma Carona</a>
+                    <a href="{% url 'index_motorista' %}" class="button-style-blue button-style-animation">Oferecer Carona</a>
+                    <a href="{% url 'index_carona' %}" class="button-style-blue button-style-animation">Pegar uma Carona</a>
                 </div>
             </div>
             </div>

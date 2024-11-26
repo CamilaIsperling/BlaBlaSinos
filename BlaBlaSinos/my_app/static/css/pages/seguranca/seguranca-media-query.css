@@ -1,5 +1,33 @@
+@import '../../global/global.css';
+
 @media (max-width: 768px) {
     .card {
         flex: 1 1 100%; /* Cards ocupam toda a largura em telas pequenas */
+    }
+
+    .img-box img {
+        max-width: 96.5vw;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .img-box {
+        width: 95%;
+        gap: 1rem;
+        margin-top: 3rem;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+        grid-template-rows: repeat(1, 1fr);
+    }
+
+    .img-box img {
+        border-radius: 10px;
+        width: 90%;
+    }
+
+    .img-box-txt {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
     }
 }
