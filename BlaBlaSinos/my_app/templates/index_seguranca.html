@@ -1,0 +1,109 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Viagens de confiança</title>
+
+    <!-- Link para as pastas -->
+    <link rel="stylesheet" href="{% static '/css/pages/seguranca/seguranca-style.css' %}">
+    <link rel="stylesheet" href="{% static '/css/pages/index/seguranca-media-query.css' %}">
+    
+    <!-- Link para fonte -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+    <!-- Link para ícones -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+        integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+</head>
+<body onresize="mudouTamanho()">
+    <!-- Menu de navegação -->
+    <header class="menu-nav menu-content">
+        <h1><a href="#">BlaBlaSinos</a></h1>
+        <i id="hamburguer" class="fas fa-bars" onclick="clickMenu()"></i>
+            <menu id="itens" class="menu-itens">
+                <ul>
+                    <li><a href="#intro">Intro</a></li>
+                    <li><a href="#ride">Caronas</a></li>
+                    <li><a href="{% url 'login' %}">Login</a></li>
+                </ul>
+            </menu>
+    </header>
+
+    <div class="container" id="azul2-container">
+        <div class="image-box">
+            <img src="imgs/ciberseguranca.jpg" alt="">
+        </div>
+    </div>
+
+    <div class="container" id="azul-container">
+        <div class="title">Viagens de confiança</div>
+        <div class="row">
+            <div class="card">
+                <h3>Foto de perfil</h3>
+                <p>Para facilitar a segurança, incentivamos todos os nossos membros a incluir uma foto de perfil. Isso é fundamental para construir uma comunidade confiável e também ajuda as pessoas a se reconhecerem quando estiverem compartilhando uma carona.<p>
+            </div>
+            <div class="card">
+                <h3>Perfil Verificado</h3>
+                <p>Outra forma de identificar um membro confiável é verificar se ele possui o selo azul de Perfil Verificado. Para obter esse selo, o membro deve fornecer sua documentação, número de celular e e-mail, permitindo-nos confirmar as informações com as que foram registradas no perfil.</p>
+            </div>
+            <div class="card">
+                <h3>Avaliações e comentários</h3>
+                <p>Viajar com a BlaBlaSinos significa fazer parte de uma comunidade onde todos se conhecem melhor, pois os membros têm a oportunidade de se avaliar e deixar comentários. Isso permite que você veja o que outros usuários acharam das viagens anteriores de alguém antes de escolher com quem viajar.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="container" id="branco-container">
+        <div class="title">Sua segurança</div>
+        <div class="row">
+            <div class="card">
+                <h3>Suporte ao membro</h3>
+                <p>Oferecemos um sistema de suporte completo para garantir que nossos membros recebam a assistência necessária sempre que precisarem. Nosso assistente automático está disponível 24 horas por dia e pode responder suas dúvidas rapidamente. Se ainda precisar de ajuda, entre em contato com nossa equipe de Suporte ao Membro através da Central de Ajuda.</p>        
+            </div>
+            <div class="card">
+                <h3>Reportar membros</h3>
+                <p>Seu bem-estar é nossa prioridade. Caso tenha uma experiência negativa com outro membro, você pode reportar o incidente diretamente à nossa equipe de Suporte, que irá tratar a situação com a atenção que ela merece.</p>
+            </div>
+            <div class="card">
+                <h3>Prevenção de fraudes</h3>
+                <p>Estamos sempre trabalhando para proteger você contra atividades fraudulentas enquanto viaja com a BlaBlaSinos. Lembre-se: nunca pedimos seu login, senha ou informações de pagamento fora da nossa plataforma. Se perceber algo suspeito, reporte diretamente no perfil do outro membro ou entre em contato com nossa equipe de suporte.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="container" id="azul-container">
+        <div class="title">Ficou com alguma dúvida?</div>
+        <div>
+            <div class="card" id="duvida-card">
+                <p>Para mais informações, acesse nossa <b>Central de Ajuda</b> ou entre em contato com nossa equipe de Suporte.</p>  
+                <br>
+                <p>*O BlaBlaSinos não pode garantir a veracidade, confiabilidade ou validade das informações sujeitas ao procedimento de verificação.</p>        
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function mudouTamanho() {
+            if (window.innerWidth >= 768) {
+                itens.style.display = 'block'
+            } else {
+                itens.style.display = 'none'
+            }
+        }
+
+        function clickMenu() {
+            if (itens.style.display == 'block') {
+                itens.style.display = 'none'
+            } else {
+                itens.style.display = 'block'
+            }
+        }
+    </script>
+</body>
+</html>
